@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+
+
 import localFont from "next/font/local";
 import { headers } from 'next/headers';
 import "./globals.css";
@@ -16,9 +17,8 @@ const geistMono = localFont({
 
 export async function generateMetadata() {
   const headersList = await headers(); 
-  const subdomain = headersList.get('x-subdomain') || 'default';
-
-  const seoData = {
+  const subdomain = (headersList.get('x-subdomain') || 'default') as 'blog' | 'shop' | 'default';
+  const seoData: Record<string, { title: string; description: string }> = {
     blog: {
       title: "Joel's Blog - Tips & Tutorials",
       description: "Explore tutorials, coding tips, and tech insights.",
