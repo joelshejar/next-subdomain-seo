@@ -17,13 +17,17 @@ const geistMono = localFont({
 
 export async function generateMetadata() {
   const headersList = await headers(); 
-  const subdomain = (headersList.get('x-subdomain') || 'default') as 'blog' | 'shop' | 'default';
+  const subdomain = (headersList.get('x-subdomain') || 'default') as 'blog' | 'shop' | 'default'| 'nextsubdomainseo';
   const seoData: Record<string, { title: string; description: string }> = {
     blog: {
       title: "Joel's Blog - Tips & Tutorials",
       description: "Explore tutorials, coding tips, and tech insights.",
     },
     shop: {
+      title: "Joel's Shop - Buy Amazing Tech",
+      description: "Discover the best tech products curated for you.",
+    },
+    nextsubdomainseo: {
       title: "Joel's Shop - Buy Amazing Tech",
       description: "Discover the best tech products curated for you.",
     },
